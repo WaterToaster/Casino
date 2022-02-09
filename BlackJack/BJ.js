@@ -382,10 +382,101 @@ var ThreexDeck = [
 var HouseHand = [];
 var PlayerHand1 = [];
 var PlayerHand2 = [];
+var PlayerClear = [];
+var BetAmount = 0;
 
 const AllowSplit = (PH =>{
     if(PH[0].type = PH[1].type){
 
     }
 });
+
+const Split = (e => {
+    if(e){
+        PlayerHand2[0] = PlayerHand1[1];
+        let HoldVALUE = PlayerHand1[0];
+        PlayerHand1 = PlayerClear;
+        PlayerHand1[0] = HoldVALUE;
+        //hide the Split button
+
+        //split the bet in half and move it to the split
+
+        //draw a card for both hands
+
+    }else{
+        //hide the split button
+    }
+
+});
+
+const BlackJackClause = (PH => {
+    if(PH[0].isAce || PH[1].isAce)
+    {
+        if(PH[0].value==10 || PH[1].value==10){
+            return true;
+        }else return false;
+        
+    }else return false;
+});
+
+const AllowBet = (e=>{
+    if(e != 0){
+        //hide chips
+    }else{
+        //show chips
+    }
+});
+
+const Bet = (e=>{
+
+
+
+});
+
+const ClearBet = (e =>{
+    if(e){
+        //detect if true, then take the current bet and add it back to the players account
+    }
+});
+
+const DoubleOrNothing = (e=>{
+    if(e){
+        BetAmount *= 2;
+        //restart the game
+
+    }
+});
+
+const Hit = (e=>{
+
+
+
+
+});
+
+const Stand = (e=>{
+
+
+
+
+});
+
+const drawHands = (H=>{
+
+
+
+})
+
+const resetGame = (e=>{
+    if(e = "DOUBLE"){
+            //double or nothing game
+        } else {
+            //reset the game back to bets
+        }
+});
+
+
+
+
+
 
