@@ -1,0 +1,23 @@
+img {
+    -webkit-transition: -webkit-transform 2s ease-out;
+}
+
+html{
+    background-color: rgb(13, 97, 13);
+}
+
+.rules{
+    display: flex;
+    background-color: rgb(13, 97, 13);
+    border-radius: 0px;
+    text-align: center;
+    padding: 15px;
+    margin:5px;
+    width: 40%;
+    user-select: none;
+    display: inline-block;
+    color: rgb(179, 101, 0);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 60%;
+}
