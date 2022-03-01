@@ -9,9 +9,23 @@
     <title>Poker</title>
 </head>
 <body>
+    <h1>Welcome to Poker</h1>
     <div class = "main_menu" id = "main_menu_btn">Go Back</div>
+    <br>
+    <br>
+    <div>
+        <img id="playerCard1" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard1()";/>
+        <img id="playerCard2" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard2()";/>
+        <img id="playerCard3" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard3()";/>
+        <img id="playerCard4" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard4()";/>
+        <img id="playerCard5" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard5()";/>
+    </div>
+    <br>
+    <br>
+    <input type='button' id='newgamebutton' value='Start New Game' onclick='newGame();'/>
+    <input type='button' id='keepCardsButton' value='Keep Cards' onclick='checkWin();'/>
 
-
+    <script src="../mainpage.js"></script>
     <script src="poker.js"></script>
 </body>
 </html>

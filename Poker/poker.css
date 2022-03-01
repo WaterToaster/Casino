@@ -3,7 +3,7 @@ html {
     background-size: cover;
 }
 body{
-    background-image: url(Images/PokerTable.png);
+    background-image: url(Images/tablebackground.jpg);
     width: 30%;
     margin: 20px auto;
     box-shadow: 10px 10px 5px #000;
@@ -13,6 +13,12 @@ body{
     text-align: center;
     color: #f0f0f0;
 }
+img{
+    width: 18%;
+    height: 20%;
+    margin: auto;
+    padding: 10px;
+}
 .main_menu{
     background-color: #000000;
     color: #f0f0f0;
@@ -20,4 +26,12 @@ body{
     margin: auto;
     padding: 10px;
     cursor: pointer;
+}
+.inline { 
+    display: inline; 
+    margin:10px;
+    cursor: pointer;
+} 
+.inline:hover {
+    opacity: 0.8;
 }
