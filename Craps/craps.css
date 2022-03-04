@@ -1,0 +1,14 @@
+html{
+    background-color: black;
+    background-image: url(CrapsBoard_NoMulti.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 200px;
+    margin-right: 350px;
+}
+
+.row {
+    display:inline-block;
+    margin-left: 1100px;
+}
