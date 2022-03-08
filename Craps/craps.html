@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craps</title>
+    <link href='craps.css' rel="stylesheet">
+</head>
+
+<body>
+    <div class="row">
+        <img id="Indicator" src="CrapsOffIndicator.png" style="width: 100px; height: 100px">
+        <br>
+        <br>
+        <label for="Bet" id="BetDisplay" style="color: white;">Last roll:</label>
+        <label for="Bet" id="CurrentBet" style="color: white;"></label>
+        <br>
+        <br>
+        <label for="Bet" id="Balance" style="color: white;"></label>
+        <label for="Bet" id="Outcome" style="color: white;"></label>
+        <br>
+        <br>
+    </div>
+    <div class="row">
+        <label for="Bet" id="BetTextBox" style="color: white;" onfocus="this.value=''">Betting amount</label>
+        <input type="text" id="BetAmount"></input>
+        <label for="Bet" id="ErrorBox" style="color: red;"></label>
+        <button id="Pass" type="button" onclick="submitPass()">Bet pass</button>
+        <button id="DP" type="button" onclick="submitDontPass()">Bet dont pass</button>
+        <br>
+        <br>     
+    </div>
+    
+    <div class="row">
+        <button id="RollDice" type="button" onclick=interact()>Roll Dice</button>
+    </div>
+    <script>
+        
+        var isPointEstablished = new Boolean(false);
+        var rollDice1;
+        var rollDice2;
+        var Total;
+        var betAmount;
+        var image = document.getElementById("Indicator");
+        var ComeOutRoll = 0;
+        var ComeoutBool = Boolean(false);
+        var balance = 100;
+        var passBet = 0;
+        var dontPassBet = 0;
+
+        document.getElementById("Balance").innerHTML = "Balance:" + balance;
+        
+        
+        document.getElementById("Pass").onclick = function () { submitPass() };
+    
+        document.getElementById("DP").onclick = function () { submitDontPass() };
+        
+        function submitPass() {
+            betAmount = document.getElementById("BetAmount").value;
+            if(betAmount > balance) {
+                document.getElementById("ErrorBox").innerHTML = "Invalid bet amount"
+            }
+            else {
+                passBet = betAmount;
+                balance -= passBet;
+                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+            }
+        }
+        function submitDontPass() {
+            betAmount = document.getElementById("BetAmount").value;
+            if(betAmount > balance) {
+                document.getElementById("ErrorBox").innerHTML = "Invalid bet amount"
+            }
+            else {
+                dontPassBet = betAmount;
+                balance -= dontPassBet;
+                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+            }
+        }
+        
+        
+        
+        function roll() {
+            rollDice1 = Math.floor(Math.random() * ((6 - 1) + 1) + 1);
+            rollDice2 = Math.floor(Math.random() * ((6 - 1) + 1) + 1);
+            Total = rollDice1 + rollDice2;
+            console.log("Dice 1:" + rollDice1 + " Dice 2:" + rollDice2 + " Total:" + Total);
+            document.getElementById("CurrentBet").innerHTML = Total;
+        }
+        
+        document.getElementById("RollDice").onclick = function () { HandleRoll() };
+
+        function HandleRoll() {
+            roll();
+            switch (Total) {
+                case 2:
+
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 4) {
+                            image.src = "CrapsOffIndicator.png";
+                            ComeoutBool = false;
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 4;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    }
+                    break;
+                case 5:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 5) {
+                            image.src = "CrapsOffIndicator.png";
+                            ComeoutBool = false;
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 5;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    } break;
+                case 6:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 6) {
+                            ComeoutBool = false;
+                            image.src = "CrapsOffIndicator.png";
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            } 
+                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 6;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    }
+                    break;
+                case 7:
+                    if(ComeOutRoll == 0) {
+                        return;
+                    }
+                    else if(ComeOutRoll == 4 || ComeOutRoll == 5 || ComeOutRoll == 6 || ComeOutRoll == 8 || ComeOutRoll == 9 || ComeOutRoll == 10) {
+                        image.src = "CrapsOffIndicator.png";
+                        ComeoutBool = false;
+                        if(passBet != 0) {
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                balance += (dontPassBet * 2)
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                    }
+                    break;
+                case 8:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 8) {
+                            image.src = "CrapsOffIndicator.png";
+                            ComeoutBool = false;
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 8;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    } break;
+                case 9:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 9) {
+                            image.src = "CrapsOffIndicator.png";
+                            ComeoutBool = false;
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }                       
+                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 9;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    } break;
+                case 10:
+                    if (ComeoutBool === true) {
+                        if(ComeOutRoll == 10) {
+                            image.src = "CrapsOffIndicator.png";
+                            ComeoutBool = false;
+                            if(passBet != 0) {
+                                balance += (passBet * 2)
+                                passBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                            if(dontPassBet != 0) {
+                                dontPassBet = 0;
+                                document.getElementById("Balance").innerHTML = "Balance:" + balance;
+                            }
+                        }
+                        else if(ComeOutRoll == 0) {
+                            return;
+                        }
+                    }
+                    else {
+                        ComeOutRoll = 10;
+                        ComeoutBool = true;
+                        image.src = "CrapsOnIndicator.png";
+                    } break;
+                case 11:
+                    break;
+                case 12:
+                    break;
+                default:
+            }
+        }
+    </script>
+</body>
+<script src="craps.js"></script>
+</html>
