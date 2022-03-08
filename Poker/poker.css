@@ -35,3 +35,6 @@ img{
 .inline:hover {
     opacity: 0.8;
 }
+.checkbox {
+    opacity:0;
+}

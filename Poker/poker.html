@@ -13,6 +13,12 @@
     <div class = "main_menu" id = "main_menu_btn">Go Back</div>
     <br>
     <br>
+    <div class="information">
+        <p></p>
+    </div>
+    <br>
+    <br>
+    <div id="WinLoseMessage"> </div>
     <div>
         <img id="playerCard1" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard1()";/>
         <img id="playerCard2" class="inline" src="Images/BackOfCard.png" disabled onclick="changePlayerCard2()";/>
@@ -24,6 +30,7 @@
     <br>
     <input type='button' id='newgamebutton' value='Start New Game' onclick='newGame();'/>
     <input type='button' id='keepCardsButton' value='Keep Cards' onclick='checkWin();'/>
+
 
     <script src="../mainpage.js"></script>
     <script src="poker.js"></script>
