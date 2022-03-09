@@ -1,0 +1,43 @@
+html
+{
+    background-image: url(Home_Page_Image/HomePageBackground.jpg);
+    background-size: cover;
+}
+body
+{
+    position: fixed;
+    right: 400px;
+    width: 30%;
+    margin: 40px auto;
+    padding: 10px;
+    border: 5px solid #fff;
+    border-radius: 12px;
+    text-align: center;
+    color: #f0f0f0;
+}
+.game_menu
+{
+    border: 2px solid #ffffff;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    margin:auto;
+    color: #fff;
+    user-select: none;
+}
+.poker
+{
+    border: 2px solid #fff;
+}
+.slots
+{
+    border: 2px solid #fff;
+}
+.craps
+{
+    border: 2px solid #fff;
+}
+.roulette
+{
+    border: 2px solid #fff;
+}

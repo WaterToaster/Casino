@@ -260,14 +260,13 @@ function makeBet() {
     document.getElementById('playerCard5').style.pointerEvents = 'none';
     document.getElementById('keepCardsButton').style.pointerEvents = 'none';
     document.getElementById('newgamebutton').style.pointerEvents = 'none';
-    document.getElementById('keepCardsButton').style.pointerEvents = 'none';
     do {
         playerBet = prompt("Enter Bet Amount...Cannot exceed withdrawn money. Withdrawn money: " + myMoney);
     } while (playerBet <= 0 || playerBet > myMoney);
     console.log("Player Bets: " + playerBet);
 }
-let onClick = evt =>
+let onBackClick = evt =>
 {
     window.location.replace("../index.html");
 }
-main_menu_btn.addEventListener("click", onClick);
+main_menu_btn.addEventListener("click", onBackClick);
