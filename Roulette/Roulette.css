@@ -6,9 +6,30 @@ html{
     background-color: rgb(13, 97, 13);
 }
 
-.rules{
+.wheel{
+    width: 50%;
+    float: left;
+}
+.Bets div{
     display: flex;
-    background-color: rgb(13, 97, 13);
+    background-color: #492e58;
+    color:#fff;
+    border-radius: 0px;
+    text-align: center;
+    padding: 15px;
+    margin:5px;
+    width: 20%;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    color: rgb(228, 56, 56);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 60%;
+}
+.rules{
+
+    background-color: rgb(10, 71, 10);
     border-radius: 0px;
     text-align: center;
     padding: 15px;
@@ -16,7 +37,7 @@ html{
     width: 40%;
     user-select: none;
     display: inline-block;
-    color: rgb(179, 101, 0);
+    color: rgb(255, 174, 0);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 60%;
