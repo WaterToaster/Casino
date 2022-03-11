@@ -1,5 +1,3 @@
-let 
-
 
 const row1 = [
     1,
@@ -131,7 +129,6 @@ img.addEventListener('click', onClick, false);
 
 
 function onClick() {
-    Spin()
 
     var deg =2 * (500 + Math.round((Math.random() * .5) * 500));
     
