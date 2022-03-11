@@ -5,7 +5,11 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
 }
-body.
+body p{
+
+    font-family: 'Times New Roman', Times, serif;
+
+}
 #barrel{
     width: 50%;
     float: left;
@@ -32,4 +36,17 @@ body.
     display: inline-block;
     letter-spacing: 3px;
 
+}
+body button {
+    background-color: #aa2504; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
 }
